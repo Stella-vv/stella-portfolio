@@ -26,7 +26,7 @@ const Profile = () => {
           label="✨ Available for all opportunities" 
           sx={{ 
             bgcolor: 'rgba(145, 94, 255, 0.1)', 
-            color: '#915EFF', 
+            color: '#e2d4ff', 
             border: '1px solid rgba(145, 94, 255, 0.2)',
             fontWeight: 600,
             fontSize: '1.1rem',

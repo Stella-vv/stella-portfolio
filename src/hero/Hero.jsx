@@ -21,7 +21,7 @@ const Hero = () => {
       pt: { xs: 20, md: 25 }, 
       pb: 10 
     }}>
-      <Box sx={{ width: '80%', mx: 'auto' }}> 
+      <Box sx={{ width: '86%', mx: 'auto' }}> 
         
         <Stack 
           direction={{ xs: 'column', md: 'row' }} 
@@ -56,13 +56,24 @@ const Hero = () => {
             
             <Typography variant="body1" sx={{ 
               color: '#aaa6c3', 
-              mb: 6, 
-              fontSize: { xs: '1.1rem', md: '1.4rem' },
+              mb: 3, 
+              fontSize: { xs: '1.2rem', md: '1.5rem' },
               lineHeight: 1.8,
-              maxWidth: '90%'
+              maxWidth: '95%'
             }}>
-              我是一名热衷于构建可扩展应用的全栈开发者。专注于 React 生态，致力于将复杂的创意转化为优雅的代码。
+              I transform ideas into digital reality through clean code, thoughtful design, and innovative solutions that create real impact and drive meaningful change.
             </Typography>
+
+            <Typography variant="body1" sx={{ 
+              color: '#aaa6c3', 
+              mb: 6, 
+              fontSize: { xs: '1.2rem', md: '1.5rem' },
+              lineHeight: 1.8,
+              maxWidth: '95%'
+            }}>
+              As a passionate full-stack developer based in Australia, I specialize in turning complex challenges into elegant solutions that deliver real value.
+            </Typography>
+            
             
             <Stack direction="row" spacing={4}>
 

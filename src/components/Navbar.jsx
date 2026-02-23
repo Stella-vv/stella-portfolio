@@ -26,11 +26,11 @@ const Navbar = () => {
         backdropFilter: 'blur(10px)',
         boxShadow: 'none',
         borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-        py: 1, // 保持导航栏厚度
+        py: 0.5, // 保持导航栏厚度
       }}
     >
       {/* 保持 90% 宽度和最初的布局 */}
-      <Box sx={{ width: '90%', mx: 'auto' }}> 
+      <Box sx={{ width: '95%', mx: 'auto' }}> 
         <Toolbar disableGutters>
           
           {/* Logo 图标保持 2.5rem 大小 */}
@@ -49,7 +49,7 @@ const Navbar = () => {
               letterSpacing: '.1rem',
               color: 'white',
               textDecoration: 'none',
-              fontSize: '1.8rem' // 🚀 恢复最初的大字号
+              fontSize: '1.6rem' // 🚀 恢复最初的大字号
             }}
           >
             Stella Xiong
@@ -67,7 +67,7 @@ const Navbar = () => {
                 sx={{ 
                   color: 'white',
                   fontWeight: 500,
-                  fontSize: '1.3rem', // 🚀 字号加大 (比之前的 1.1rem 明显更大)
+                  fontSize: '1.2rem', // 🚀 字号加大 (比之前的 1.1rem 明显更大)
                   textTransform: 'none',
                   '&:hover': { color: '#915EFF', background: 'transparent' } 
                 }}
@@ -76,26 +76,6 @@ const Navbar = () => {
               </Button>
             ))}
           </Box>
-          
-          {/* 右侧 Contact me 按钮 */}
-          <Button 
-            variant="contained" 
-            component="a" // 🚀 确保这里有 component="a"
-            href="mailto:stellaxiong420@outlook.com" // 🚀 修改为邮件链接
-            sx={{ 
-              ml: 4, 
-              bgcolor: '#915EFF',
-              borderRadius: '30px',
-              px: 4,
-              py: 1, 
-              fontSize: '1.3rem', 
-              fontWeight: '700',
-              textTransform: 'none',
-              '&:hover': { bgcolor: '#7c46e0' }
-            }}
-          >
-            Contact me
-          </Button>
           
         </Toolbar>
       </Box>

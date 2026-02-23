@@ -19,10 +19,6 @@ const skillsRow1 = [
   { name: 'CSS3', slug: 'css3' },
   { name: 'Tailwind', slug: 'tailwindcss' },
   { name: 'MUI', slug: 'materialui' },
-  { name: 'Vite', slug: 'vitejs' },
-  { name: 'Office', slug: 'Office', customUrl: '/office.svg' },
-  { name: 'Markdown', slug: 'markdown' },
-  { name: 'Flask', slug: 'flask' },
 ];
 
 const skillsRow2 = [
@@ -34,6 +30,13 @@ const skillsRow2 = [
   { name: 'Git', slug: 'git' },
   { name: 'Docker', slug: 'docker' },
   { name: 'Figma', slug: 'figma' },
+];
+
+const skillsRow3 = [
+  { name: 'Vite', slug: 'vitejs' },
+  { name: 'Office', slug: 'Office', customUrl: '/office.svg' },
+  { name: 'Markdown', slug: 'markdown' },
+  { name: 'Flask', slug: 'flask' },
   { name: 'Linux', slug: 'linux' },
   { name: 'C++', slug: 'cplusplus' },
   { name: 'npm', slug: 'npm' },
@@ -46,7 +49,7 @@ const double = (arr) => [...arr, ...arr];
 const Skills = () => {
   return (
     <SectionContainer>
-      <Container maxWidth="lg" sx={{ textAlign: 'center', mb: 8 }}>
+      <Container maxWidth="80%" sx={{ textAlign: 'center', mb: 8 }}>
                 
         <Box sx={{ 
         display: 'flex', 
@@ -123,9 +126,9 @@ const Skills = () => {
               <img 
                 src={skill.customUrl || `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.slug}/${skill.slug}-original.svg`} 
                 alt={skill.name} 
-                style={{ width: '30px', height: '30px' }} 
+                style={{ width: '40px', height: '40px' }}
               />
-              <Typography variant="body1" sx={{ fontWeight: 500, color: '#fff' }}>
+              <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, flexGrow: 1, textAlign: 'center', fontSize: '1rem' }}>
                 {skill.name}
               </Typography>
             </SkillCard>
@@ -134,16 +137,34 @@ const Skills = () => {
       </MarqueeContainer>
 
       {/* 第二排：向右滚动 (reverse={true}) */}
-      <MarqueeContainer>
+      <MarqueeContainer sx={{ mb: 4 }}>
         <MarqueeTrack reverse={true}> {/* 注意这里传了 props */}
           {double(skillsRow2).map((skill, index) => (
             <SkillCard key={`row2-${index}`}>
               <img 
                 src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.slug}/${skill.slug}-original.svg`} 
                 alt={skill.name} 
-                style={{ width: '30px', height: '30px' }} 
+                style={{ width: '40px', height: '40px' }}
               />
-              <Typography variant="body1" sx={{ fontWeight: 500, color: '#fff' }}>
+              <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, flexGrow: 1, textAlign: 'center', fontSize: '1rem' }}>
+                {skill.name}
+              </Typography>
+            </SkillCard>
+          ))}
+        </MarqueeTrack>
+      </MarqueeContainer>
+
+          {/* 第三排：向左滚动 */}
+      <MarqueeContainer>
+        <MarqueeTrack>
+          {double(skillsRow3).map((skill, index) => (
+            <SkillCard key={`row3-${index}`}>
+              <img 
+                src={skill.customUrl || `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.slug}/${skill.slug}-original.svg`} 
+                alt={skill.name} 
+                style={{ width: '40px', height: '40px' }}
+              />
+              <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, flexGrow: 1, textAlign: 'center', fontSize: '1rem' }}>
                 {skill.name}
               </Typography>
             </SkillCard>
