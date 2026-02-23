@@ -1,0 +1,28 @@
+/* src/index.css */
+body {
+  margin: 0;
+  padding: 0;
+  /* 这里的渐变是模仿你发的那张图的氛围 */
+  background: radial-gradient(circle at 50% -20%, #3e1e68 0%, #050816 60%);
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* 让背景固定，滚动时不跟着动 */
+  min-height: 100vh;
+}
+
+/* 这是一个可选的滚动条美化，让它变成深色 */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #050816;
+}
+::-webkit-scrollbar-thumb {
+  background: #915EFF;
+  border-radius: 5px;
+}
+
+html {
+  scroll-behavior: smooth;
+  /* 预留出导航栏高度，让标题跳转后出现在距离顶部约 100px 的位置 */
+  scroll-padding-top: 80px; 
+}
