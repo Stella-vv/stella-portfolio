@@ -1,21 +1,27 @@
 // src/components/Navbar.jsx
-import React from 'react';
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
+import React, { useState } from 'react';
+import { AppBar, Box, Toolbar, Typography, Button, IconButton, Menu, MenuItem } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
+import MenuIcon from '@mui/icons-material/Menu'; // 🚀 引入汉堡菜单图标
 
 const Navbar = () => {
-  // 🚀 补全所有页面的跳转链接，确保每个页面都能点击跳转
+  const [anchorElNav, setAnchorElNav] = useState(null);
+
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
+
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
+
   const navItems = [
     { name: 'Home', id: 'home' },
     { name: 'About', id: 'about' },
     { name: 'Skills', id: 'skills' },
     { name: 'Education', id: 'education' },
+    { name: 'Projects', id: 'projects' },
     { name: 'Experience', id: 'experience' },
-    { name: 'Projects', id: 'projects' }
   ];
 
   return (
@@ -26,14 +32,12 @@ const Navbar = () => {
         backdropFilter: 'blur(10px)',
         boxShadow: 'none',
         borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-        py: 0.5, // 保持导航栏厚度
+        py: 0.5, 
       }}
     >
-      {/* 保持 90% 宽度和最初的布局 */}
       <Box sx={{ width: '95%', mx: 'auto' }}> 
         <Toolbar disableGutters>
           
-          {/* Logo 图标保持 2.5rem 大小 */}
           <CodeIcon sx={{ display: 'flex', mr: 1, color: '#915EFF', fontSize: '2.5rem' }} />
           
           <Typography
@@ -44,30 +48,64 @@ const Navbar = () => {
             sx={{
               mr: 2,
               display: 'flex',
+              flexGrow: { xs: 1, lg: 0 }, // 🚀 手机端让标题撑开空间
               fontFamily: 'monospace',
               fontWeight: 800,
               letterSpacing: '.1rem',
               color: 'white',
               textDecoration: 'none',
-              fontSize: '1.6rem' // 🚀 恢复最初的大字号
+              fontSize: '1.6rem'
             }}
           >
             Stella Xiong
           </Typography>
 
-          <Box sx={{ flexGrow: 1 }} />
+          {/* 🚀 手机端汉堡菜单 */}
+          <Box sx={{ display: { xs: 'flex', lg: 'none' } }}>
+            <IconButton
+              size="large"
+              aria-label="account of current user"
+              aria-controls="menu-appbar"
+              aria-haspopup="true"
+              onClick={handleOpenNavMenu}
+              color="inherit"
+            >
+              <MenuIcon fontSize="large" />
+            </IconButton>
+            <Menu
+              id="menu-appbar"
+              anchorEl={anchorElNav}
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              keepMounted
+              transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+              open={Boolean(anchorElNav)}
+              onClose={handleCloseNavMenu}
+              sx={{ display: { xs: 'block', lg: 'none' } }}
+              PaperProps={{
+                sx: { backgroundColor: '#151030', color: 'white', border: '1px solid #915EFF' }
+              }}
+            >
+              {navItems.map((item) => (
+                <MenuItem key={item.name} onClick={handleCloseNavMenu} component="a" href={`#${item.id}`}>
+                  <Typography textAlign="center" sx={{ fontWeight: 'bold' }}>{item.name}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
+          </Box>
 
-          {/* 菜单项部分 - 字号加大，gap 稍微调整以容纳 6 个选项 */}
+          <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }} />
+
+          {/* 桌面端菜单栏 */}
           <Box sx={{ display: { xs: 'none', lg: 'flex' }, gap: 4 }}> 
             {navItems.map((item) => (
               <Button
                 key={item.name}
                 component="a"
-                href={`#${item.id}`} // 绑定到 App.jsx 中的对应 ID
+                href={`#${item.id}`} 
                 sx={{ 
                   color: 'white',
                   fontWeight: 500,
-                  fontSize: '1.2rem', // 🚀 字号加大 (比之前的 1.1rem 明显更大)
+                  fontSize: '1.2rem', 
                   textTransform: 'none',
                   '&:hover': { color: '#915EFF', background: 'transparent' } 
                 }}

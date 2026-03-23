@@ -4,7 +4,9 @@ import { Box, Typography, Button, Stack, Chip } from '@mui/material';
 const Profile = () => {
   return (
     <Box sx={{ 
-      height: '100vh', 
+      minHeight: { xs: '80vh', md: '100vh' }, 
+      pt: { xs: 12, md: 0 }, 
+      pb: { xs: 8, md: 0 },
       width: '100%',
       display: 'flex', 
       flexDirection: 'column',
@@ -12,36 +14,44 @@ const Profile = () => {
       alignItems: 'center',     
       bgcolor: 'transparent',
       position: 'relative',
-      overflow: 'hidden'    
+      overflow: 'hidden',
+      px: { xs: 2, sm: 4 }, // 🚀 把左右内边距提上来，放在最外层
+      boxSizing: 'border-box'
     }}>
       
       <Box sx={{ 
-        width: '90%', 
-        maxWidth: '1200px', 
+        width: '100%', 
+        maxWidth: '1000px', // 限制最大宽度，让文字不至于拉得太长
         textAlign: 'center',
-        zIndex: 1 
+        zIndex: 1,
       }}>
           
-        <Chip 
+      <Chip 
           label="✨ Available for all opportunities" 
           sx={{ 
             bgcolor: 'rgba(145, 94, 255, 0.1)', 
             color: '#e2d4ff', 
             border: '1px solid rgba(145, 94, 255, 0.2)',
             fontWeight: 600,
-            fontSize: '1.1rem',
+            fontSize: { xs: '0.85rem', sm: '1.1rem' }, // 手机端字号缩小
             borderRadius: '50px',
             height: 'auto',
-            py: 1.5,
-            px: 3,
+            py: { xs: 1, sm: 1.5 },
+            px: { xs: 1.5, sm: 3 },
             mb: 4,
             boxShadow: '0 0 15px rgba(145, 94, 255, 0.2)',
-            '& .MuiChip-label': { padding: 0 }
+            // 强制允许内部文字换行，打断“帐篷效应”
+            '& .MuiChip-label': { 
+              padding: { xs: '4px 8px', sm: '0' }, 
+              whiteSpace: 'normal', 
+              textAlign: 'center',
+              lineHeight: 1.4
+            }
           }} 
         />
 
         <Typography variant="h1" sx={{ 
-          fontSize: { xs: '3.5rem', md: '6rem', lg: '8rem' }, 
+          fontSize: { xs: '2.5rem', sm: '3.5rem', md: '6rem', lg: '8rem' }, 
           color: 'white', 
           mb: 2, 
           fontWeight: 900,
@@ -63,8 +73,8 @@ const Profile = () => {
         
         <Typography variant="body1" sx={{ 
           color: '#aaa6c3', 
-          mb: 6, 
-          fontSize: { xs: '1.2rem', md: '1.6rem' }, 
+          mb: { xs: 4, md: 6 }, 
+          fontSize: { xs: '1rem', md: '1.6rem' }, 
           lineHeight: 1.6,
           maxWidth: '800px',
           mx: 'auto'
@@ -72,13 +82,20 @@ const Profile = () => {
           I craft exceptional digital experiences with modern technologies, building scalable applications from concept to deployment.
         </Typography>
         
-        <Stack direction="row" spacing={3} justifyContent="center">
+        <Stack 
+          direction={{ xs: 'column', sm: 'row' }} 
+          spacing={2.5} 
+          justifyContent="center" 
+          alignItems="center"
+          sx={{ width: '100%' }}
+        >
           <Button 
             component="a"
             href="#projects"
             variant="contained" 
             size="large" 
             sx={{ 
+              width: { xs: '100%', sm: 'auto' }, // 手机端按钮宽度 100%
               bgcolor: '#915EFF', 
               borderRadius: '50px', 
               px: 5, 
@@ -96,6 +113,7 @@ const Profile = () => {
             component="a"
             href="mailto:stellaxiong420@outlook.com"
             sx={{ 
+              width: { xs: '100%', sm: 'auto' }, // 手机端按钮宽度 100%
               color: 'white', 
               borderColor: 'rgba(255,255,255,0.2)', 
               borderRadius: '50px',

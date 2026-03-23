@@ -4,7 +4,7 @@ import { Box, Card, Button } from '@mui/material';
 
 export const SectionContainer = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
-  paddingTop: theme.spacing(10), // 🚀 增加顶部内边距
+  paddingTop: theme.spacing(2), // 🚀 增加顶部内边距
   paddingBottom: theme.spacing(10),
   backgroundColor: 'transparent',
   display: 'flex',

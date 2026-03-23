@@ -127,7 +127,7 @@ const Projects = () => {
         </Box>
 
         {/* 卡片网格 (保持之前调好的大尺寸样式) */}
-        <Grid container spacing={4} justifyContent="center">
+        <Grid container spacing={{ xs: 2, md: 4 }} justifyContent="center">
           {projectsData.map((project) => (
             <Grid key={project.id} size={{ xs: 12, sm: 6, md: 4 }}>
               

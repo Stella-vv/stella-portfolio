@@ -50,7 +50,7 @@ const experiences = [
 const Experience = () => {
   return (
     <SectionContainer id="experience">
-      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 5 } }}>
+      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 6 } }}>
         
         {/* 顶部标题：保持与 Education/Skills 一致的渐变线条风格 */}
         <Box sx={{ textAlign: 'center', mb: 10 }}>
@@ -79,7 +79,7 @@ const Experience = () => {
         </Box>
 
         {/* 时间轴内容 */}
-        <Box sx={{ maxWidth: '1000px', mx: 'auto', position: 'relative', pl: { xs: 4, md: 8 } }}>
+        <Box sx={{ maxWidth: '1000px', mx: 'auto', position: 'relative', pl: { xs: 7, md: 8 } }}>
           
           {experiences.map((exp, index) => (
             <Box key={exp.id} sx={{ mb: 8, position: 'relative' }}>

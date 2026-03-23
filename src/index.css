@@ -7,6 +7,8 @@ body {
   background-repeat: no-repeat;
   background-attachment: fixed; /* 让背景固定，滚动时不跟着动 */
   min-height: 100vh;
+  overflow-x: hidden; 
+  width: 100%;
 }
 
 /* 这是一个可选的滚动条美化，让它变成深色 */
@@ -25,4 +27,13 @@ html {
   scroll-behavior: smooth;
   /* 预留出导航栏高度，让标题跳转后出现在距离顶部约 100px 的位置 */
   scroll-padding-top: 80px; 
+}
+
+#root {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  text-align: left !important;
+  overflow-x: hidden;
 }

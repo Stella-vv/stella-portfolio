@@ -18,8 +18,8 @@ const Hero = () => {
       alignItems: 'flex-start', 
       justifyContent: 'center',
       bgcolor: 'transparent',
-      pt: { xs: 20, md: 25 }, 
-      pb: 10 
+      pt: { xs: 3, md: 12 }, 
+      pb: 10
     }}>
       <Box sx={{ width: '86%', mx: 'auto' }}> 
         
@@ -27,7 +27,7 @@ const Hero = () => {
           direction={{ xs: 'column', md: 'row' }} 
           alignItems="center" 
           justifyContent="space-between" 
-          gap={{ xs: 8, md: 10 }} 
+          gap={{ xs: 6, md: 10 }}
           sx={{ width: '100%' }}
         >
           
@@ -36,8 +36,8 @@ const Hero = () => {
             <Typography variant="h6" sx={{ 
               color: '#915EFF', 
               fontWeight: 'bold', 
-              mb: 3, 
-              fontSize: '1.2rem',
+              mb: { xs: 1.5, md: 3 },
+              fontSize: { xs: '0.9rem', md: '1.2rem' },
               letterSpacing: '0.15em',
               textTransform: 'uppercase'
             }}>
@@ -45,7 +45,7 @@ const Hero = () => {
             </Typography>
             
             <Typography variant="h1" sx={{ 
-              fontSize: { xs: '3.5rem', md: '5.5rem', lg: '7rem' },
+              fontSize: { xs: '3rem', md: '5.5rem', lg: '7rem' },
               color: 'white', 
               mb: 4, 
               fontWeight: 900,
@@ -57,9 +57,9 @@ const Hero = () => {
             <Typography variant="body1" sx={{ 
               color: '#aaa6c3', 
               mb: 3, 
-              fontSize: { xs: '1.2rem', md: '1.5rem' },
-              lineHeight: 1.8,
-              maxWidth: '95%'
+              fontSize: { xs: '1.05rem', md: '1.4rem' }, 
+              lineHeight: 1.7,
+              maxWidth: '100%'
             }}>
               I transform ideas into digital reality through clean code, thoughtful design, and innovative solutions that create real impact and drive meaningful change.
             </Typography>
@@ -67,7 +67,7 @@ const Hero = () => {
             <Typography variant="body1" sx={{ 
               color: '#aaa6c3', 
               mb: 6, 
-              fontSize: { xs: '1.2rem', md: '1.5rem' },
+              fontSize: { xs: '1.05rem', md: '1.4rem' }, 
               lineHeight: 1.8,
               maxWidth: '95%'
             }}>
@@ -88,9 +88,9 @@ const Hero = () => {
               sx={{ 
                 bgcolor: '#915EFF', 
                 borderRadius: '50px', 
-                px: 6, 
-                py: 1.8,
-                fontSize: '1.3rem', 
+                px: { xs: 4, md: 6 }, // 🚀 手机端按钮稍微收敛一点
+                py: { xs: 1.2, md: 1.8 },
+                fontSize: { xs: '1.1rem', md: '1.3rem' },
                 fontWeight: 'bold',
                 textTransform: 'none',
                 boxShadow: '0 0 25px rgba(145, 94, 255, 0.5)',

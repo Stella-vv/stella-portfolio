@@ -27,11 +27,11 @@ function App() {
       {/* 建议放在 Skills 后面，Projects 前面，或者根据你喜好调整顺序 */}
       <div id="skills"><Skills /></div>
       
-      <div id="education"><Education /></div> {/* 2. 添加在这里 */}
+      <Education />
       
-      <div id="projects"><Projects /></div>
+      <Projects />
 
-      <div id="experience"><Experience /></div>
+      <Experience />
 
       <Footer />
     </>

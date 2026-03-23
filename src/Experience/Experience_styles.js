@@ -5,10 +5,19 @@ import { Box, Card } from '@mui/material';
 // 复用之前的透明背景容器
 export const SectionContainer = styled(Box)(({ theme }) => ({
   minHeight: '80vh',
-  paddingTop: theme.spacing(10),
+  display: 'flex',             // 🚀 新增 flex 布局确保对齐正常
+  flexDirection: 'column',     // 🚀 新增
+  justifyContent: 'flex-start',// 🚀 新增
+  paddingTop: '20px',
   paddingBottom: theme.spacing(10),
   backgroundColor: 'transparent',
   position: 'relative',
+
+  // 🚀 核心修复：手机端收紧边距
+  [theme.breakpoints.down('md')]: {
+    paddingTop: '10px', 
+    minHeight: 'auto',  
+  },
 }));
 
 // 卡片样式

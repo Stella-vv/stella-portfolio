@@ -7,11 +7,17 @@ export const SectionContainer = styled(Box)(({ theme }) => ({
   minHeight: '100vh',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'flex-start', // 🚀 改为靠上对齐
-  paddingTop: theme.spacing(15), 
+  justifyContent: 'flex-start', 
+  paddingTop: '20px', // 💻 电脑端稍微留一点间距
   paddingBottom: theme.spacing(10),
   backgroundColor: 'transparent', 
   position: 'relative',
+
+  // 🚀 核心修复：针对手机端收紧上边距，并取消强制全屏高度
+  [theme.breakpoints.down('md')]: {
+    paddingTop: '10px',   // 📱 手机端极大减小顶部空白
+    minHeight: 'auto',    // 📱 让内容自然排布，防止下方太空
+  },
 }));
 
 // 2. 教育卡片 (玻璃拟态 + 左侧小箭头)
@@ -21,6 +27,11 @@ export const EducationCard = styled(Card)(({ theme }) => ({
   border: '1px solid rgba(255, 255, 255, 0.1)',
   borderRadius: '20px',
   padding: theme.spacing(4),
+
+  [theme.breakpoints.down('md')]: {
+    padding: theme.spacing(2.5),
+  },
+
   position: 'relative',
   overflow: 'visible', 
   transition: 'transform 0.3s ease, border-color 0.3s ease',

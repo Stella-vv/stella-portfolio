@@ -17,11 +17,16 @@ export const SectionContainer = styled(Box)(({ theme }) => ({
   minHeight: '100vh', 
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'flex-start', // 🚀 改为靠上对齐
-  paddingTop: theme.spacing(20), // 🚀 固定的顶部间距
+  justifyContent: 'flex-start', 
+  paddingTop: '50px',
   position: 'relative',
   zIndex: 1,
   paddingBottom: theme.spacing(10),
+  [theme.breakpoints.down('md')]: {
+    minHeight: 'auto',     // 取消强制 100% 屏幕高度，让容器贴合内容实际高度
+    paddingTop: '40px',    // 稍微往下推一点，不要死死贴着导航栏
+    paddingBottom: '60px', // 稍微收紧底部留白，让下一个板块自然接上来
+  },
 }));
 
 // 👇 必须加 'export'！
@@ -41,7 +46,10 @@ export const MarqueeTrack = styled(Box, {
   shouldForwardProp: (prop) => prop !== 'reverse',
 })(({ theme, reverse }) => ({
   display: 'flex',
-  gap: '2rem',
+  gap: '1rem', // 🚀 手机端卡片间距缩小到 1rem
+  [theme.breakpoints.up('md')]: {
+    gap: '2rem', // 💻 电脑端恢复为 2rem
+  },
   width: 'max-content',
   animation: `${reverse ? scrollXReverse : scrollX} 60s linear infinite`, 
   '&:hover': {
@@ -49,12 +57,15 @@ export const MarqueeTrack = styled(Box, {
   },
 }));
 
-// 👇 必须加 'export'！
 export const SkillCard = styled(Box)(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
-  gap: '12px',
-  padding: '12px 24px',
+  gap: '8px',
+  padding: '8px 16px', // 🚀 手机端卡片内边距缩小
+  [theme.breakpoints.up('md')]: {
+    gap: '12px',
+    padding: '12px 24px', // 💻 电脑端恢复正常大小
+  },
   borderRadius: '50px', 
   backgroundColor: 'rgba(255, 255, 255, 0.05)', 
   border: '1px solid rgba(255, 255, 255, 0.1)',

@@ -84,7 +84,7 @@ const Education = () => {
         </Box>
 
         {/* 时间轴主体 (保持不变) */}
-        <Box sx={{ maxWidth: '1000px', mx: 'auto', position: 'relative', pl: { xs: 4, md: 8 } }}>
+        <Box sx={{ maxWidth: '1000px', mx: 'auto', position: 'relative', pl: { xs: 7, md: 8 } }}>     
           
           {educationData.map((item, index) => (
             <Box key={item.id} sx={{ mb: 8, position: 'relative' }}>
