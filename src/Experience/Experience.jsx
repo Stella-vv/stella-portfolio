@@ -1,7 +1,6 @@
-// src/Experience/Experience.jsx
 import React from 'react';
 import { Box, Typography, Container, Stack } from '@mui/material';
-import WorkIcon from '@mui/icons-material/Work'; // 使用公文包图标
+import WorkIcon from '@mui/icons-material/Work';
 
 import { 
   SectionContainer, 
@@ -10,7 +9,7 @@ import {
   TimelineLine 
 } from './Experience_styles';
 
-// 工作经历数据 (提取自你的图片，按时间倒序排列)
+// 🚀 确保数据变量名定义为 experiences，解决 ReferenceError
 const experiences = [
   {
     id: 1,
@@ -50,28 +49,57 @@ const experiences = [
 const Experience = () => {
   return (
     <SectionContainer id="experience">
-      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 6 } }}>
-        
-        {/* 顶部标题：保持与 Education/Skills 一致的渐变线条风格 */}
-        <Box sx={{ textAlign: 'center', mb: 10 }}>
+      <Container maxWidth="xl" sx={{ px: { xs: 2, md: 5 } }}>
           
-          <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 3, mb: 2 }}>
-            <Box sx={{ height: '2px', width: { xs: '40px', md: '100px' }, background: 'linear-gradient(to right, transparent, #915EFF)', borderRadius: '2px' }} />
+          {/* 🚀 核心修改：副标题容器 */}
+        <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 5 } }}> {/* 🚀 移动端下边距由 10 改为 6，对齐 Education */}
+          
+          <Box sx={{ 
+            display: 'flex', 
+            alignItems: 'center', 
+            justifyContent: 'center', 
+            gap: 3, 
+            mb: 2 
+          }}>
+            
+            {/* 左侧渐变线 - 参考 Education 设为 2px 高度但缩短宽度 */}
+            <Box sx={{ 
+              height: '2px', 
+              width: { xs: '40px', md: '80px' }, // 🚀 移动端设为 40px，对齐 Education
+              background: 'linear-gradient(to right, transparent, #915EFF)',
+              borderRadius: '2px'
+            }} />
+
             <Typography
               variant="overline"
-              sx={{ color: '#915EFF', letterSpacing: '0.2rem', fontWeight: '900', fontSize: { xs: '1rem', md: '1.2rem' }, textTransform: 'uppercase' }}
+              sx={{ 
+                color: '#915EFF', 
+                letterSpacing: '0.2rem', 
+                fontWeight: '900',
+                fontSize: { xs: '1rem', md: '1.1rem' }, // 🚀 移动端字号对齐 1rem
+                textTransform: 'uppercase'
+              }}
             >
-              Work
+              Work {/* 这里对应 Education 的 "MY JOURNEY" 位置 */}
             </Typography>
-            <Box sx={{ height: '2px', width: { xs: '40px', md: '100px' }, background: 'linear-gradient(to left, transparent, #915EFF)', borderRadius: '2px' }} />
+
+            {/* 右侧渐变线 */}
+            <Box sx={{ 
+              height: '2px', 
+              width: { xs: '40px', md: '80px' }, 
+              background: 'linear-gradient(to left, transparent, #915EFF)', 
+              borderRadius: '2px'
+            }} />
           </Box>
 
+          {/* 大标题 */}
           <Typography
             variant="h2"
             sx={{
               color: 'white',
               fontWeight: 900,
-              fontSize: { xs: '3rem', md: '4.5rem', lg: '5.5rem' }
+              // 🚀 字号完全参照 Education 移动端比例
+              fontSize: { xs: '2.8rem', md: '3.8rem', lg: '4.5rem' } 
             }}
           >
             Work <span style={{ color: '#915EFF' }}>Experience</span>
@@ -79,41 +107,51 @@ const Experience = () => {
         </Box>
 
         {/* 时间轴内容 */}
-        <Box sx={{ maxWidth: '1000px', mx: 'auto', position: 'relative', pl: { xs: 7, md: 8 } }}>
+        <Box sx={{ maxWidth: '900px', mx: 'auto', position: 'relative', pl: { xs: 7, md: 8 } }}>
           
           {experiences.map((exp, index) => (
-            <Box key={exp.id} sx={{ mb: 8, position: 'relative' }}>
+            <Box key={exp.id} sx={{ mb: { xs: 6, md: 5 }, position: 'relative' }}> 
               
-              {/* 连接线 */}
               <TimelineLine sx={{ 
                 background: index === experiences.length - 1 
                   ? 'linear-gradient(to bottom, #915EFF, transparent)' 
                   : '#915EFF' 
               }} />
               
-              {/* 圆点 */}
               <TimelineDot />
 
-              {/* 卡片 */}
               <ExperienceCard>
-                <Stack direction={{ xs: 'column', lg: 'row' }} justifyContent="space-between" alignItems={{ xs: 'flex-start', lg: 'center' }} mb={2}>
+                <Stack direction={{ xs: 'column', lg: 'row' }} justifyContent="space-between" alignItems={{ xs: 'flex-start', lg: 'center' }} mb={1.5}>
                   <Box>
-                     <Typography variant="h4" sx={{ color: 'white', fontWeight: 700, fontSize: '1.5rem', mb: 1 }}>
+                     <Typography variant="h4" sx={{ 
+                       color: 'white', 
+                       fontWeight: 700, 
+                       // 💻 适配 100% 缩放：职位字号缩小
+                       fontSize: { xs: '1.4rem', md: '1.25rem' }, 
+                       mb: 0.5 
+                     }}>
                         {exp.role}
                      </Typography>
-                     <Typography variant="h6" sx={{ color: '#fff', fontSize: '1rem', fontWeight: 500, display: 'flex', alignItems: 'center', gap: 1 }}>
-                        <WorkIcon sx={{ color: '#915EFF', fontSize: '1.2rem', mr: 1 }} /> {exp.company}
+                     <Typography variant="h6" sx={{ 
+                       color: '#fff', 
+                       fontSize: { xs: '0.95rem', md: '0.9rem' }, 
+                       fontWeight: 500, 
+                       display: 'flex', 
+                       alignItems: 'center', 
+                       gap: 1 
+                     }}>
+                        <WorkIcon sx={{ color: '#915EFF', fontSize: '1.1rem' }} /> {exp.company}
                      </Typography>
                   </Box>
                   
-                  {/* 日期 */}
+                  {/* 日期标签 */}
                   <Box sx={{ 
-                      mt: { xs: 2, lg: 0 },
+                      mt: { xs: 1.5, lg: 0 },
                       px: 2, py: 0.5, 
                       borderRadius: '20px', 
-                      border: '1px solid rgba(145, 94, 255, 0.3)',
+                      border: '1px solid rgba(145, 94, 255, 0.2)',
                       color: '#aaa6c3',
-                      fontSize: '0.9rem',
+                      fontSize: '0.8rem', 
                       fontWeight: 600,
                       background: 'rgba(145, 94, 255, 0.05)',
                       whiteSpace: 'nowrap'
@@ -128,12 +166,13 @@ const Experience = () => {
                     <Typography 
                       component="li" 
                       key={i} 
-                      variant="body1" 
+                      variant="body2" 
                       sx={{ 
-                        mb: 1, 
-                        lineHeight: 1.8, 
-                        fontSize: '1.1rem',
-                        '&::marker': { color: '#915EFF' } // 让列表前的圆点变成紫色
+                        mb: 0.8, 
+                        lineHeight: 1.6, 
+                        // 💻 适配 100% 缩放：正文字号缩小
+                        fontSize: { xs: '1rem', md: '0.92rem' },
+                        '&::marker': { color: '#915EFF' } 
                       }}
                     >
                       {point}

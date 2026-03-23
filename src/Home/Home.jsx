@@ -21,7 +21,8 @@ const Profile = () => {
       
       <Box sx={{ 
         width: '100%', 
-        maxWidth: '1000px', // 限制最大宽度，让文字不至于拉得太长
+        // 🚀 调整：在电脑端稍微收窄最大宽度，防止文字在 80% 缩放时拉得太长
+        maxWidth: { xs: '100%', md: '800px', lg: '1000px' }, 
         textAlign: 'center',
         zIndex: 1,
       }}>
@@ -33,7 +34,7 @@ const Profile = () => {
             color: '#e2d4ff', 
             border: '1px solid rgba(145, 94, 255, 0.2)',
             fontWeight: 600,
-            fontSize: { xs: '0.85rem', sm: '1.1rem' }, // 手机端字号缩小
+            fontSize: { xs: '0.85rem', sm: '1rem' },
             borderRadius: '50px',
             height: 'auto',
             py: { xs: 1, sm: 1.5 },
@@ -51,7 +52,7 @@ const Profile = () => {
         />
 
         <Typography variant="h1" sx={{ 
-          fontSize: { xs: '2.5rem', sm: '3.5rem', md: '6rem', lg: '8rem' }, 
+          fontSize: { xs: '2.5rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem' }, 
           color: 'white', 
           mb: 2, 
           fontWeight: 900,
@@ -74,7 +75,8 @@ const Profile = () => {
         <Typography variant="body1" sx={{ 
           color: '#aaa6c3', 
           mb: { xs: 4, md: 6 }, 
-          fontSize: { xs: '1rem', md: '1.6rem' }, 
+          // 🚀 调整：电脑端正文字号从 1.6rem 缩小到 1.25rem
+          fontSize: { xs: '1rem', md: '1.25rem' }, 
           lineHeight: 1.6,
           maxWidth: '800px',
           mx: 'auto'
@@ -100,7 +102,7 @@ const Profile = () => {
               borderRadius: '50px', 
               px: 5, 
               py: 1.5,
-              fontSize: '1.2rem',
+              fontSize: { xs: '1.2rem', md: '1.1rem' },
               fontWeight: 'bold',
               boxShadow: '0 0 30px rgba(145, 94, 255, 0.4)',
               '&:hover': { bgcolor: '#7c46e0' } 
@@ -119,7 +121,7 @@ const Profile = () => {
               borderRadius: '50px',
               px: 5,
               py: 1.5,
-              fontSize: '1.2rem',
+              fontSize: { xs: '1.2rem', md: '1.1rem' },
               '&:hover': { borderColor: 'white', bgcolor: 'rgba(255,255,255,0.05)' } 
             }}
           >

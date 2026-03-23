@@ -9,7 +9,6 @@ import {
 } from './Skills_styles';
 
 // 3. 技能数据 (为了效果好，我们复制一份数据让滚动无缝衔接)
-// slug 对应 https://devicon.dev/ 的图标名称
 const skillsRow1 = [
   { name: 'React', slug: 'react' },
   { name: 'JavaScript', slug: 'javascript' },
@@ -49,47 +48,46 @@ const double = (arr) => [...arr, ...arr];
 const Skills = () => {
   return (
     <SectionContainer>
-      <Container maxWidth="lg" sx={{ textAlign: 'center', mb: 8, px: { xs: 2, md: 5 } }}>
+      <Container maxWidth="lg" sx={{ textAlign: 'center', mb: { xs: 8, md: 5 }, px: { xs: 2, md: 5 } }}>
                 
         <Box sx={{ 
-        display: 'flex', 
-        alignItems: 'center', 
-        justifyContent: 'center', 
-        gap: { xs: 2, md: 3 },
-        mb: { xs: 3, md: 2 }
+          display: 'flex', 
+          alignItems: 'center', 
+          justifyContent: 'center', 
+          gap: { xs: 2, md: 3 },
+          mb: { xs: 3, md: 2 }
         }}>
         
-        {/* 左边的渐变线：从透明 -> 紫色 */}
+          {/* 左边的渐变线 */}
           <Box sx={{
               height: '2px',
-              width: { xs: '30px', md: '100px' }, // 🚀 手机端线条稍微改短
+              width: { xs: '30px', md: '70px' }, // 🚀 电脑端缩短线条
               background: 'linear-gradient(to right, transparent, #915EFF)',
               borderRadius: '2px'
           }} />
 
-        {/* 中间的文字 */}
-        <Typography 
-            variant="body1" 
-            sx={{ 
-            color: '#915EFF', // 统一改成霓虹紫，和线条呼应
-            letterSpacing: '0.2em', // 字间距拉大，更有高级感
-            textTransform: 'uppercase', 
-            fontWeight: 700,
-            fontSize: { xs: '0.85rem', md: '1.3rem' }, // 🚀 手机端副标题缩小
-            textShadow: '0 0 10px rgba(145, 94, 255, 0.3)'
-            }}
-        >
-            Skills & Expertise
-        </Typography>
+          {/* 中间的文字 */}
+          <Typography 
+              variant="body1" 
+              sx={{ 
+                color: '#915EFF', 
+                letterSpacing: '0.2em', 
+                textTransform: 'uppercase', 
+                fontWeight: 700,
+                fontSize: { xs: '0.85rem', md: '1rem' }, // 🚀 电脑端副标题缩小
+                textShadow: '0 0 10px rgba(145, 94, 255, 0.3)'
+              }}
+          >
+              Skills & Expertise
+          </Typography>
 
-        {/* 右边的渐变线：从紫色 -> 透明 */}
-        <Box sx={{
-            height: '2px',
-            width: { xs: '40px', md: '100px' }, 
-            background: 'linear-gradient(to left, transparent, #915EFF)', // 注意方向反过来
-            borderRadius: '2px'
-        }} />
-
+          {/* 右边的渐变线 */}
+          <Box sx={{
+              height: '2px',
+              width: { xs: '30px', md: '70px' }, 
+              background: 'linear-gradient(to left, transparent, #915EFF)',
+              borderRadius: '2px'
+          }} />
         </Box>
         
         <Typography 
@@ -97,23 +95,24 @@ const Skills = () => {
             sx={{ 
                 fontWeight: 900, 
                 mb: { xs: 3, md: 2 },
-                fontSize: { xs: '2.4rem', sm: '3.5rem', md: '4.5rem', lg: '5.5rem' }, // 🚀 核心修复：手机端大标题缩小到 2.4rem
-                lineHeight: { xs: 1.2, md: 1.1 } // 🚀 手机端稍微拉开一点行高，防止文字挤在一起
+                // 🚀 核心：电脑端大标题缩小 (最高 4.5rem)
+                fontSize: { xs: '2.4rem', sm: '3.5rem', md: '3.6rem', lg: '4.2rem' }, 
+                lineHeight: { xs: 1.2, md: 1.1 }
             }}
             >
-            My Development <br sx={{ display: { xs: 'block', sm: 'none' } }} /> {/* 🚀 手机端强制换行，让排版更整齐 */}
+            My Development <br sx={{ display: { xs: 'block', sm: 'none' } }} /> 
             <span style={{ color: '#915EFF' }}>Arsenal</span>
         </Typography>
 
-      <Typography 
+        <Typography 
             variant="body1" 
             sx={{ 
-            color: '#aaa6c3', 
-            maxWidth: '800px', 
-            mx: 'auto', 
-            lineHeight: 1.8,   
-            fontSize: { xs: '1rem', md: '1.4rem' }, // 🚀 手机端正文缩小到 1rem
-            px: { xs: 1, md: 0 }
+              color: '#aaa6c3', 
+              maxWidth: '800px', 
+              mx: 'auto', 
+              lineHeight: 1.8,   
+              fontSize: { xs: '1rem', md: '1.15rem' }, // 🚀 电脑端正文缩小到 1.15rem
+              px: { xs: 1, md: 0 }
             }}
         >
             From frontend frameworks to backend technologies, these are the tools I use to craft exceptional digital experiences and solve complex problems.
@@ -121,7 +120,7 @@ const Skills = () => {
       </Container>
 
       {/* 第一排：向左滚动 */}
-      <MarqueeContainer sx={{ mb: { xs: 2, md: 4 } }}> {/* 🚀 手机端行间距 mb 调小 */}
+      <MarqueeContainer sx={{ mb: { xs: 2, md: 2 } }}> {/* 🚀 核心修改：电脑端下边距缩小 (4 -> 2) */}
         <MarqueeTrack>
           {double(skillsRow1).map((skill, index) => (
             <SkillCard key={`row1-${index}`}>
@@ -129,9 +128,9 @@ const Skills = () => {
                 component="img"
                 src={skill.customUrl || `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.slug}/${skill.slug}-original.svg`} 
                 alt={skill.name} 
-                sx={{ width: { xs: '24px', md: '40px' }, height: { xs: '24px', md: '40px' } }} // 🚀 图标手机端缩小到 24px
+                sx={{ width: { xs: '24px', md: '30px' }, height: { xs: '24px', md: '30px' } }} // 🚀 电脑端图标缩小
               />
-              <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, flexGrow: 1, textAlign: 'center', fontSize: { xs: '0.85rem', md: '1rem' } }}> {/* 🚀 文字手机端缩小 */}
+              <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, fontSize: { xs: '0.85rem', md: '0.95rem' } }}>
                 {skill.name}
               </Typography>
             </SkillCard>
@@ -139,8 +138,8 @@ const Skills = () => {
         </MarqueeTrack>
       </MarqueeContainer>
 
-      {/* 第二排：向右滚动 (reverse={true}) */}
-      <MarqueeContainer sx={{ mb: { xs: 2, md: 4 } }}> {/* 🚀 手机端行间距 mb 调小 */}
+      {/* 第二排：向右滚动 */}
+      <MarqueeContainer sx={{ mb: { xs: 2, md: 2 } }}> {/* 🚀 核心修改：电脑端下边距缩小 (4 -> 2) */}
         <MarqueeTrack reverse={true}> 
           {double(skillsRow2).map((skill, index) => (
             <SkillCard key={`row2-${index}`}>
@@ -148,9 +147,9 @@ const Skills = () => {
                 component="img"
                 src={`https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.slug}/${skill.slug}-original.svg`} 
                 alt={skill.name} 
-                sx={{ width: { xs: '24px', md: '40px' }, height: { xs: '24px', md: '40px' } }} // 🚀 图标手机端缩小
+                sx={{ width: { xs: '24px', md: '30px' }, height: { xs: '24px', md: '30px' } }}
               />
-              <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, flexGrow: 1, textAlign: 'center', fontSize: { xs: '0.85rem', md: '1rem' } }}>
+              <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, fontSize: { xs: '0.85rem', md: '0.95rem' } }}>
                 {skill.name}
               </Typography>
             </SkillCard>
@@ -167,9 +166,9 @@ const Skills = () => {
                 component="img"
                 src={skill.customUrl || `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${skill.slug}/${skill.slug}-original.svg`} 
                 alt={skill.name} 
-                sx={{ width: { xs: '24px', md: '40px' }, height: { xs: '24px', md: '40px' } }} // 🚀 图标手机端缩小
+                sx={{ width: { xs: '24px', md: '30px' }, height: { xs: '24px', md: '30px' } }}
               />
-              <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, flexGrow: 1, textAlign: 'center', fontSize: { xs: '0.85rem', md: '1rem' } }}>
+              <Typography variant="h6" sx={{ color: 'white', fontWeight: 600, fontSize: { xs: '0.85rem', md: '0.95rem' } }}>
                 {skill.name}
               </Typography>
             </SkillCard>

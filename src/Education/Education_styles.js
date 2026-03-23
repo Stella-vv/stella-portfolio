@@ -8,25 +8,25 @@ export const SectionContainer = styled(Box)(({ theme }) => ({
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'flex-start', 
-  paddingTop: '20px', // 💻 电脑端稍微留一点间距
+  paddingTop: '15px', // 🚀 电脑端稍微留一点间距
   paddingBottom: theme.spacing(10),
   backgroundColor: 'transparent', 
   position: 'relative',
 
-  // 🚀 核心修复：针对手机端收紧上边距，并取消强制全屏高度
   [theme.breakpoints.down('md')]: {
-    paddingTop: '10px',   // 📱 手机端极大减小顶部空白
-    minHeight: 'auto',    // 📱 让内容自然排布，防止下方太空
+    paddingTop: '10px',   
+    minHeight: 'auto',    
   },
 }));
 
 // 2. 教育卡片 (玻璃拟态 + 左侧小箭头)
 export const EducationCard = styled(Card)(({ theme }) => ({
-  backgroundColor: 'rgba(21, 16, 48, 0.6)', // 半透明深紫
+  backgroundColor: 'rgba(21, 16, 48, 0.6)', 
   backdropFilter: 'blur(12px)',
   border: '1px solid rgba(255, 255, 255, 0.1)',
   borderRadius: '20px',
-  padding: theme.spacing(4),
+  // 🚀 核心修改：减小电脑端的内边距 (4 -> 3)
+  padding: theme.spacing(3),
 
   [theme.breakpoints.down('md')]: {
     padding: theme.spacing(2.5),
@@ -42,7 +42,6 @@ export const EducationCard = styled(Card)(({ theme }) => ({
     boxShadow: '0 10px 30px rgba(0,0,0,0.3)',
   },
 
-  // 左侧的小三角箭头
   '&::before': {
     content: '""',
     position: 'absolute',
@@ -62,10 +61,10 @@ export const TimelineDot = styled(Box)(({ theme }) => ({
   height: '16px',
   borderRadius: '50%',
   backgroundColor: '#915EFF', 
-  border: '4px solid #1d1836', // 外圈深色
+  border: '4px solid #1d1836', 
   boxShadow: '0 0 10px #915EFF', 
   position: 'absolute',
-  left: '-58px', // 位置微调
+  left: '-58px', 
   top: '28px',
   zIndex: 2,
   
@@ -79,7 +78,7 @@ export const TimelineLine = styled(Box)(({ theme }) => ({
   position: 'absolute',
   left: '-51px', 
   top: '0',
-  bottom: '-50px', // 让线稍微长一点连接下一个
+  bottom: '-50px', 
   width: '2px',
   background: 'linear-gradient(to bottom, #915EFF, transparent)', 
   zIndex: 1,

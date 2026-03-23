@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { AppBar, Box, Toolbar, Typography, Button, IconButton, Menu, MenuItem } from '@mui/material';
 import CodeIcon from '@mui/icons-material/Code';
-import MenuIcon from '@mui/icons-material/Menu'; // 🚀 引入汉堡菜单图标
+import MenuIcon from '@mui/icons-material/Menu'; 
 
 const Navbar = () => {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -32,13 +32,24 @@ const Navbar = () => {
         backdropFilter: 'blur(10px)',
         boxShadow: 'none',
         borderBottom: '1px solid rgba(255, 255, 255, 0.05)',
-        py: 0.5, 
+        // 💻 电脑端压缩高度，📱 手机端也稍微收紧
+        py: { xs: 0.2, lg: 0 }, 
       }}
     >
-      <Box sx={{ width: '95%', mx: 'auto' }}> 
-        <Toolbar disableGutters>
+      {/* 🚀 核心修改：将手机端 width 从 95% 提高到 98%，缩小两侧边距 */}
+      <Box sx={{ 
+        width: { xs: '98%', lg: '95%' }, 
+        mx: 'auto' 
+      }}> 
+        <Toolbar disableGutters sx={{ minHeight: { xs: '56px', lg: '56px' } }}>
           
-          <CodeIcon sx={{ display: 'flex', mr: 1, color: '#915EFF', fontSize: '2.5rem' }} />
+          {/* 🚀 手机端图标也缩小一点点 (2.5rem -> 2.2rem) */}
+          <CodeIcon sx={{ 
+            display: 'flex', 
+            mr: 1, 
+            color: '#915EFF', 
+            fontSize: { xs: '2.2rem', lg: '1.8rem' } 
+          }} />
           
           <Typography
             variant="h6"
@@ -48,13 +59,14 @@ const Navbar = () => {
             sx={{
               mr: 2,
               display: 'flex',
-              flexGrow: { xs: 1, lg: 0 }, // 🚀 手机端让标题撑开空间
+              flexGrow: { xs: 1, lg: 0 }, 
               fontFamily: 'monospace',
               fontWeight: 800,
-              letterSpacing: '.1rem',
+              letterSpacing: { xs: '.05rem', lg: '.05rem' },
               color: 'white',
               textDecoration: 'none',
-              fontSize: '1.6rem'
+              // 🚀 手机端名字字号缩小 (1.6rem -> 1.4rem)
+              fontSize: { xs: '1.4rem', lg: '1.2rem' }
             }}
           >
             Stella Xiong
@@ -64,13 +76,11 @@ const Navbar = () => {
           <Box sx={{ display: { xs: 'flex', lg: 'none' } }}>
             <IconButton
               size="large"
-              aria-label="account of current user"
-              aria-controls="menu-appbar"
-              aria-haspopup="true"
               onClick={handleOpenNavMenu}
               color="inherit"
+              sx={{ p: 1 }} // 缩小按钮内边距
             >
-              <MenuIcon fontSize="large" />
+              <MenuIcon fontSize="medium" /> {/* 🚀 图标改为 medium 更精致 */}
             </IconButton>
             <Menu
               id="menu-appbar"
@@ -96,7 +106,7 @@ const Navbar = () => {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', lg: 'flex' } }} />
 
           {/* 桌面端菜单栏 */}
-          <Box sx={{ display: { xs: 'none', lg: 'flex' }, gap: 4 }}> 
+          <Box sx={{ display: { xs: 'none', lg: 'flex' }, gap: 2 }}> 
             {navItems.map((item) => (
               <Button
                 key={item.name}
@@ -105,8 +115,9 @@ const Navbar = () => {
                 sx={{ 
                   color: 'white',
                   fontWeight: 500,
-                  fontSize: '1.2rem', 
+                  fontSize: '1.1rem', 
                   textTransform: 'none',
+                  px: 1,
                   '&:hover': { color: '#915EFF', background: 'transparent' } 
                 }}
               >
