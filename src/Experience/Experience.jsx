@@ -9,7 +9,6 @@ import {
   TimelineLine 
 } from './Experience_styles';
 
-// 🚀 确保数据变量名定义为 experiences，解决 ReferenceError
 const experiences = [
   {
     id: 1,
@@ -33,17 +32,6 @@ const experiences = [
       'Collected and analyzed user experience feedback to support website optimization and usability improvements.'
     ]
   },
-  {
-    id: 3,
-    role: 'Software Testing Intern',
-    company: 'Ningxia Zhongxiong Technology Co.Ltd',
-    date: 'December 2021 - March 2022',
-    points: [
-      'Designed and executed test cases based on detailed product requirements, ensuring functional correctness before release.',
-      'Reported defects using bug tracking systems and prepared structured test reports for cross-team review.',
-      'Optimized and maintained test cases to improve testing efficiency, coverage, and overall test cycles.'
-    ]
-  }
 ];
 
 const Experience = () => {
@@ -51,8 +39,7 @@ const Experience = () => {
     <SectionContainer id="experience">
       <Container maxWidth="xl" sx={{ px: { xs: 2, md: 5 } }}>
           
-          {/* 🚀 核心修改：副标题容器 */}
-        <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 5 } }}> {/* 🚀 移动端下边距由 10 改为 6，对齐 Education */}
+        <Box sx={{ textAlign: 'center', mb: { xs: 6, md: 5 } }}>
           
           <Box sx={{ 
             display: 'flex', 
@@ -62,10 +49,9 @@ const Experience = () => {
             mb: 2 
           }}>
             
-            {/* 左侧渐变线 - 参考 Education 设为 2px 高度但缩短宽度 */}
             <Box sx={{ 
               height: '2px', 
-              width: { xs: '40px', md: '80px' }, // 🚀 移动端设为 40px，对齐 Education
+              width: { xs: '40px', md: '80px' },
               background: 'linear-gradient(to right, transparent, #915EFF)',
               borderRadius: '2px'
             }} />
@@ -76,11 +62,11 @@ const Experience = () => {
                 color: '#915EFF', 
                 letterSpacing: '0.2rem', 
                 fontWeight: '900',
-                fontSize: { xs: '1rem', md: '1.1rem' }, // 🚀 移动端字号对齐 1rem
+                fontSize: { xs: '1rem', md: '1.1rem' },
                 textTransform: 'uppercase'
               }}
             >
-              Work {/* 这里对应 Education 的 "MY JOURNEY" 位置 */}
+              Work 
             </Typography>
 
             {/* 右侧渐变线 */}
@@ -98,7 +84,6 @@ const Experience = () => {
             sx={{
               color: 'white',
               fontWeight: 900,
-              // 🚀 字号完全参照 Education 移动端比例
               fontSize: { xs: '2.8rem', md: '3.8rem', lg: '4.5rem' } 
             }}
           >
@@ -126,7 +111,6 @@ const Experience = () => {
                      <Typography variant="h4" sx={{ 
                        color: 'white', 
                        fontWeight: 700, 
-                       // 💻 适配 100% 缩放：职位字号缩小
                        fontSize: { xs: '1.4rem', md: '1.25rem' }, 
                        mb: 0.5 
                      }}>
@@ -170,7 +154,6 @@ const Experience = () => {
                       sx={{ 
                         mb: 0.8, 
                         lineHeight: 1.6, 
-                        // 💻 适配 100% 缩放：正文字号缩小
                         fontSize: { xs: '1rem', md: '0.92rem' },
                         '&::marker': { color: '#915EFF' } 
                       }}
