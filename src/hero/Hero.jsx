@@ -1,6 +1,7 @@
 import React from 'react';
 import { Box, Typography, Button, Stack } from '@mui/material';
 import DownloadIcon from '@mui/icons-material/Download'; 
+import GitHubIcon from '@mui/icons-material/GitHub';
 import { 
   CodePaper, 
   Keyword, 
@@ -74,7 +75,7 @@ const Hero = () => {
               As a passionate full-stack developer based in Australia, I specialize in turning complex challenges into elegant solutions that deliver real value.
             </Typography>
             
-            <Stack direction="row" spacing={4}>
+            <Stack direction="row" gap={{ xs: 2.5, md: 3.5 }} flexWrap="wrap">
               <Button 
                 variant="contained" 
                 size="large" 
@@ -97,6 +98,38 @@ const Hero = () => {
               >
                 Get My CV
               </Button>
+
+              {/* 3. 新增的 My GitHub 按钮 */}
+              <Button 
+                variant="outlined" 
+                size="large" 
+                component="a"       
+                href="https://github.com/Stella-vv" // TODO: 替换为你的真实 GitHub 链接
+                target="_blank"       
+                rel="noopener noreferrer"
+                startIcon={<GitHubIcon sx={{ fontSize: '1.4rem' }} />} 
+                sx={{ 
+                  color: 'white', 
+                  borderColor: 'rgba(255, 255, 255, 0.25)', 
+                  bgcolor: 'rgba(255, 255, 255, 0.03)',
+                  borderRadius: '50px', 
+                  px: { xs: 4, md: 5 }, 
+                  py: { xs: 1.2, md: 1.5 },
+                  fontSize: { xs: '1.1rem', md: '1.1rem' },
+                  fontWeight: 'bold',
+                  textTransform: 'none',
+                  backdropFilter: 'blur(10px)',
+                  transition: 'all 0.3s ease',
+                  '&:hover': { 
+                    bgcolor: 'rgba(255, 255, 255, 0.12)', 
+                    borderColor: 'rgba(255, 255, 255, 0.8)',
+                    transform: 'translateY(-2px)',
+                    boxShadow: '0 5px 20px rgba(255, 255, 255, 0.15)'
+                  } 
+                }}
+              >
+                My GitHub
+              </Button>
             </Stack>
           </Box>
 
@@ -116,7 +149,7 @@ const Hero = () => {
               }}>
                 <div><Keyword>const</Keyword> <FuncColor>dev</FuncColor> = {'{'}</div>
                 <div style={{ paddingLeft: '20px' }}><PropColor>name</PropColor>: <StringColor>'Stella Xiong'</StringColor>,</div>
-                <div style={{ paddingLeft: '20px' }}><PropColor>age</PropColor>: <NumColor>25</NumColor>,</div>
+                <div style={{ paddingLeft: '20px' }}><PropColor>age</PropColor>: <NumColor>26</NumColor>,</div>
                 <div style={{ paddingLeft: '20px' }}><PropColor>role</PropColor>: <StringColor>'Full-Stack Developer'</StringColor>,</div>
                 <div style={{ paddingLeft: '20px' }}><PropColor>skills</PropColor>: [<StringColor>'Frontend'</StringColor>, <StringColor>'Backend'</StringColor>, <StringColor>'Database'</StringColor>, <StringColor>'Figma'</StringColor>]</div>
                 <div style={{ paddingLeft: '20px' }}><PropColor>quickLearner</PropColor>: <Keyword>true</Keyword>,</div>

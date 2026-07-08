@@ -12,9 +12,20 @@ import {
 const experiences = [
   {
     id: 1,
+    role: 'Customer Solutions Advisor',
+    company: 'TPG Telecom',
+    date: 'Apr 2026 – Present',
+    points: [
+      'Supported customers with mobile services, device upgrades, billing enquiries, and account troubleshooting in a fast-paced technology retail environment.',
+      'Use internal systems to check account details, troubleshoot service problems, and guide customers through clear next steps.',
+      'Communicate technical and service information in a simple way, while building strong problem-solving and customer support skills.'
+    ]
+  },
+  {
+    id: 2,
     role: 'Store Team Member',
     company: 'Woolworths',
-    date: 'May 2025 - Present',
+    date: 'May 2025 - Mar 2026',
     points: [
       'Assisted customers at self-checkout stations and managed manual checkout operations, ensuring accurate and efficient payment processing.',
       'Prepared and packed online orders with a strong focus on accuracy, speed, and presentation quality.',
@@ -22,10 +33,10 @@ const experiences = [
     ]
   },
   {
-    id: 2,
+    id: 3,
     role: 'Operation and Maintenance Intern',
     company: 'Suzhou Pengyu Micro-Grid Technology Co. Ltd',
-    date: 'March 2022 - June 2022',
+    date: 'Mar 2022 - Jun 2022',
     points: [
       'Maintained daily website operations and system stability, handling emergency incidents, bug fixes, and routine security checks in a production environment.',
       'Diagnosed and resolved website issues through debugging and basic security assessments, improving incident response efficiency.',

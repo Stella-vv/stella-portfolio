@@ -15,15 +15,15 @@ const educationData = [
     id: 1,
     degree: 'Master of Information Technology',
     school: 'UNIVERSITY OF NEW SOUTH WALES',
-    date: 'January 2024 - September 2025',
-    description: 'Specialized in advanced software engineering and AI systems. Developed strong skills in full-stack development and cloud computing.',
+    date: 'Jan 2024 - Sep 2025',
+    description: 'Focused on software engineering, full-stack web development, and developing AI-integrated applications.',
   },
   {
     id: 2,
     degree: 'Bachelor of Network Engineering',
     school: 'SICHUAN NORMAL UNIVERSITY',
-    date: 'September 2018 - June 2022',
-    description: 'Built a solid foundation in computer science, networking protocols, and system architecture. Graduated with honors.',
+    date: 'Sep 2018 - Jun 2022',
+    description: 'Built a strong foundation in network management, full-stack development, and penetration testing.',
   }
 ];
 
