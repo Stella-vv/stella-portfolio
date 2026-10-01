@@ -16,13 +16,12 @@ const experiences = [
     company: 'Beamie Pty Ltd',
     date: 'Jun 2025 – Present',
     points: [
-      'Built and maintained full-stack web applications using C#, ASP.NET Core, and React with TypeScript, delivering features across the stack.',
-      'Developed RESTful APIs with ASP.NET Core Web API following layered/clean architecture and SOLID principles.',
-      'Designed relational data models with Entity Framework Core and SQL Server.',
-      'Built responsive UIs with React and TypeScript from Figma designs, with a focus on usability and accessibility.',
-      'Implemented authentication and authorization using ASP.NET Identity and JWT with role-based access control.',
-      'Developed unit and integration tests with xUnit, Moq, and FluentAssertions to improve quality and reduce regressions.',
-      'Collaborated in an Agile Scrum team through sprint planning, code reviews, and technical discussions.'
+      'Worked on full-stack features using C#, ASP.NET Core, React, and TypeScript.',
+      'Built and maintained RESTful APIs with ASP.NET Core Web API.',
+      'Designed and updated relational data models using Entity Framework Core and SQL Server.',
+      'Built responsive React interfaces from Figma designs and integrated them with backend APIs.',
+      'Implemented authentication and role-based access control using ASP.NET Identity and JWT.',
+      'Wrote unit and integration tests using xUnit, Moq, and FluentAssertions.'
     ]
   },
   {
