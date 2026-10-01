@@ -12,37 +12,30 @@ import {
 const experiences = [
   {
     id: 1,
-    role: 'Customer Solutions Advisor',
-    company: 'TPG Telecom',
-    date: 'Apr 2026 – Present',
+    role: 'Software Developer',
+    company: 'Beamie Pty Ltd',
+    date: 'Jun 2025 – Present',
     points: [
-      'Supported customers with mobile services, device upgrades, billing enquiries, and account troubleshooting in a fast-paced technology retail environment.',
-      'Use internal systems to check account details, troubleshoot service problems, and guide customers through clear next steps.',
-      'Communicate technical and service information in a simple way, while building strong problem-solving and customer support skills.'
+      'Built and maintained full-stack web applications using C#, ASP.NET Core, and React with TypeScript, delivering features across the stack.',
+      'Developed RESTful APIs with ASP.NET Core Web API following layered/clean architecture and SOLID principles.',
+      'Designed relational data models with Entity Framework Core and SQL Server.',
+      'Built responsive UIs with React and TypeScript from Figma designs, with a focus on usability and accessibility.',
+      'Implemented authentication and authorization using ASP.NET Identity and JWT with role-based access control.',
+      'Developed unit and integration tests with xUnit, Moq, and FluentAssertions to improve quality and reduce regressions.',
+      'Collaborated in an Agile Scrum team through sprint planning, code reviews, and technical discussions.'
     ]
   },
   {
     id: 2,
-    role: 'Store Team Member',
-    company: 'Woolworths',
-    date: 'May 2025 - Mar 2026',
-    points: [
-      'Assisted customers at self-checkout stations and managed manual checkout operations, ensuring accurate and efficient payment processing.',
-      'Prepared and packed online orders with a strong focus on accuracy, speed, and presentation quality.',
-      'Collaborated with team members in a fast-paced retail environment to maintain smooth store operations and customer satisfaction.'
-    ]
-  },
-  {
-    id: 3,
-    role: 'Operation and Maintenance Intern',
+    role: 'IT Intern',
     company: 'Suzhou Pengyu Micro-Grid Technology Co. Ltd',
-    date: 'Mar 2022 - Jun 2022',
+    date: 'Mar 2022 – Jun 2022',
     points: [
-      'Maintained daily website operations and system stability, handling emergency incidents, bug fixes, and routine security checks in a production environment.',
-      'Diagnosed and resolved website issues through debugging and basic security assessments, improving incident response efficiency.',
-      'Collected and analyzed user experience feedback to support website optimization and usability improvements.'
+      'Supported daily operation and maintenance of web-based platforms, including issue monitoring, debugging, testing, and basic bug fixing.',
+      'Investigated system errors using logs and frontend tools to identify root causes and support issue resolution.',
+      'Performed routine checks and functional testing to help maintain stable platform performance after releases.'
     ]
-  },
+  }
 ];
 
 const Experience = () => {
