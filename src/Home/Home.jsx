@@ -93,8 +93,8 @@ const Profile = () => {
         >
           <Button 
             component="a"
-            href="#projects"
-            variant="contained" 
+            href="#experience"
+            variant="contained"
             size="large" 
             sx={{ 
               width: { xs: '100%', sm: 'auto' }, // 手机端按钮宽度 100%
